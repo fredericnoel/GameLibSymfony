@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\UsersHasGamesHasPlatforms;
+use App\Entity\UsersHasPlatforms;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method UsersHasGamesHasPlatforms|null find($id, $lockMode = null, $lockVersion = null)
- * @method UsersHasGamesHasPlatforms|null findOneBy(array $criteria, array $orderBy = null)
- * @method UsersHasGamesHasPlatforms[]    findAll()
- * @method UsersHasGamesHasPlatforms[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method UsersHasPlatforms|null find($id, $lockMode = null, $lockVersion = null)
+ * @method UsersHasPlatforms|null findOneBy(array $criteria, array $orderBy = null)
+ * @method UsersHasPlatforms[]    findAll()
+ * @method UsersHasPlatforms[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UsersHasGamesHasPlatformsRepository extends ServiceEntityRepository
+class UsersHasPlatformsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, UsersHasGamesHasPlatforms::class);
+        parent::__construct($registry, UsersHasPlatforms::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(UsersHasGamesHasPlatforms $entity, bool $flush = true): void
+    public function add(UsersHasPlatforms $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class UsersHasGamesHasPlatformsRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(UsersHasGamesHasPlatforms $entity, bool $flush = true): void
+    public function remove(UsersHasPlatforms $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,7 +46,7 @@ class UsersHasGamesHasPlatformsRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return UsersHasGamesHasPlatforms[] Returns an array of UsersHasGamesHasPlatforms objects
+    //  * @return UsersHasPlatforms[] Returns an array of UsersHasPlatforms objects
     //  */
     /*
     public function findByExampleField($value)
@@ -63,7 +63,7 @@ class UsersHasGamesHasPlatformsRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?UsersHasGamesHasPlatforms
+    public function findOneBySomeField($value): ?UsersHasPlatforms
     {
         return $this->createQueryBuilder('u')
             ->andWhere('u.exampleField = :val')

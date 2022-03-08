@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\EditorsHasStudios;
+use App\Entity\GamesHasUsers;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method EditorsHasStudios|null find($id, $lockMode = null, $lockVersion = null)
- * @method EditorsHasStudios|null findOneBy(array $criteria, array $orderBy = null)
- * @method EditorsHasStudios[]    findAll()
- * @method EditorsHasStudios[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method GamesHasUsers|null find($id, $lockMode = null, $lockVersion = null)
+ * @method GamesHasUsers|null findOneBy(array $criteria, array $orderBy = null)
+ * @method GamesHasUsers[]    findAll()
+ * @method GamesHasUsers[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class EditorsHasStudiosRepository extends ServiceEntityRepository
+class GamesHasUsersRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, EditorsHasStudios::class);
+        parent::__construct($registry, GamesHasUsers::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(EditorsHasStudios $entity, bool $flush = true): void
+    public function add(GamesHasUsers $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class EditorsHasStudiosRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(EditorsHasStudios $entity, bool $flush = true): void
+    public function remove(GamesHasUsers $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,15 +46,15 @@ class EditorsHasStudiosRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return EditorsHasStudios[] Returns an array of EditorsHasStudios objects
+    //  * @return GamesHasUsers[] Returns an array of GamesHasUsers objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
+            ->orderBy('g.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -63,10 +63,10 @@ class EditorsHasStudiosRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?EditorsHasStudios
+    public function findOneBySomeField($value): ?GamesHasUsers
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

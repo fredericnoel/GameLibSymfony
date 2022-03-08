@@ -14,36 +14,51 @@ class Platforms
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $manufacturerPlatform;
+    private $modelName;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $modelPlatform;
+    private $modelRef;
+
+    #[ORM\ManyToOne(targetEntity: Manufacturers::class)]
+    private $id_manufacturer;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getManufacturerPlatform(): ?string
+    public function getModelName(): ?string
     {
-        return $this->manufacturerPlatform;
+        return $this->modelName;
     }
 
-    public function setManufacturerPlatform(string $manufacturerPlatform): self
+    public function setModelName(string $manufacturerPlatform): self
     {
         $this->manufacturerPlatform = $manufacturerPlatform;
 
         return $this;
     }
 
-    public function getModelPlatform(): ?string
+    public function getModelRef(): ?string
     {
-        return $this->modelPlatform;
+        return $this->modelRef;
     }
 
-    public function setModelPlatform(string $modelPlatform): self
+    public function setModelRef(string $modelRef): self
     {
-        $this->modelPlatform = $modelPlatform;
+        $this->modelRef = $modelRef;
+
+        return $this;
+    }
+
+    public function getIdManufacturer(): ?Manufacturers
+    {
+        return $this->id_manufacturer;
+    }
+
+    public function setIdManufacturer(?Manufacturers $id_manufacturer): self
+    {
+        $this->id_manufacturer = $id_manufacturer;
 
         return $this;
     }

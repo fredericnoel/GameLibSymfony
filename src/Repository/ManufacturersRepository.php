@@ -2,30 +2,30 @@
 
 namespace App\Repository;
 
-use App\Entity\StudiosHasGames;
+use App\Entity\Manufacturers;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method StudiosHasGames|null find($id, $lockMode = null, $lockVersion = null)
- * @method StudiosHasGames|null findOneBy(array $criteria, array $orderBy = null)
- * @method StudiosHasGames[]    findAll()
- * @method StudiosHasGames[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Manufacturers|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Manufacturers|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Manufacturers[]    findAll()
+ * @method Manufacturers[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class StudiosHasGamesRepository extends ServiceEntityRepository
+class ManufacturersRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, StudiosHasGames::class);
+        parent::__construct($registry, Manufacturers::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(StudiosHasGames $entity, bool $flush = true): void
+    public function add(Manufacturers $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -37,7 +37,7 @@ class StudiosHasGamesRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(StudiosHasGames $entity, bool $flush = true): void
+    public function remove(Manufacturers $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -46,15 +46,15 @@ class StudiosHasGamesRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return StudiosHasGames[] Returns an array of StudiosHasGames objects
+    //  * @return Manufacturers[] Returns an array of Manufacturers objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
+            ->orderBy('m.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -63,10 +63,10 @@ class StudiosHasGamesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?StudiosHasGames
+    public function findOneBySomeField($value): ?Manufacturers
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()
